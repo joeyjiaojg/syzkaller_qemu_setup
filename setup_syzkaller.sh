@@ -45,3 +45,6 @@ sudo apt install linux-headers-amd64 -y || true
 cd $WS/src/github.com/google/syzkaller
 make install_prerequisites
 sudo ln -sf $(ls /usr/bin/clang-format-* | grep clang-format-[0-9]) /usr/bin/clang-format
+
+TARGETOS=linux TARGETARCH=amd64 make generate -j$(nproc)
+TARGETOS=linux TARGETARCH=amd64 make -j$(nproc)
