@@ -1,0 +1,11 @@
+# Setup
+https://github.com/google/syzkaller/blob/master/docs/linux/setup_ubuntu-host_qemu-vm_x86-64-kernel.md
+
+
+# Build
+TARGETOS=linux TARGETARCH=amd64 make generate -j$(nproc)
+TARGETOS=linux TARGETARCH=amd64 make -j$(nproc)
+
+# Run
+mkdir workdir
+./bin/syz-manager -config=adb.cfg
